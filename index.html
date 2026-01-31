@@ -1,208 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>theEcho.fyndz</title>
+Conversation opened. 1 unread message. 
 
-  <style>
-    :root {
-      --bg: #0f0f0f;
-      --card: #161616;
-      --text: #eaeaea;
-      --muted: #9a9a9a;
-      --accent: #8cffc1;
-    }
+Skip to content
+Using Gmail with screen readers
+1 of 481
+(no subject)
+Inbox
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+Chandan
+5:26 PM (5 minutes ago)
+to me
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      padding: 16px;
-    }
+<div class="product-card" style="background-image: url('https://YOUR-IMAGE-LINK.jpg');">
+  <div class="overlay">
+    <h3>Baggy Denim Jeans</h3>
+    <p class="price">₹2,199</p>
+    <p class="desc">Streetwear silhouette</p>
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 48px 16px;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .hero .trust {
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .cta {
-      display: inline-block;
-      padding: 12px 24px;
-      background: var(--accent);
-      color: #000;
-      text-decoration: none;
-      border-radius: 24px;
-      font-weight: 600;
-    }
-
-    /* CATEGORIES */
-    .categories {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 32px 0;
-    }
-
-    .categories button {
-      background: none;
-      border: 1px solid #2a2a2a;
-      color: var(--text);
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .categories button.active {
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-
-    /* PRODUCTS */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 12px;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .price {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .buy {
-      display: block;
-      text-align: center;
-      padding: 8px;
-      background: #222;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: 8px;
-      border: 1px solid #333;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>theEcho.fyndz</h1>
-    <p>Curated outfits & everyday finds</p>
-    <div class="trust">Handpicked drops. No random junk.</div>
-    <a href="#shop" class="cta">Shop the fits</a>
-  </section>
-
-  <!-- CATEGORIES -->
-  <div class="categories">
-    <button class="active" onclick="filterProducts('all', this)">All</button>
-    <button onclick="filterProducts('shirts', this)">Shirts</button>
-    <button onclick="filterProducts('sweaters', this)">Sweaters</button>
-    <button onclick="filterProducts('pants', this)">Pants</button>
-    <button onclick="filterProducts('jackets', this)">Jackets</button>
+    <a 
+      href="https://your-affiliate-link-here"
+      target="_blank"
+      rel="nofollow noopener"
+      class="buy-btn"
+    >
+      Buy
+    </a>
   </div>
+</div>
 
-  <!-- PRODUCTS -->
-  <section id="shop" class="products">
 
-    <div class="card" data-category="shirts">
-      <img src="https://via.placeholder.com/400x500" alt="Oversized Shirt">
-      <h3>Oversized Cotton Shirt</h3>
-      <div class="price">₹1,299</div>
-      <div class="desc">Relaxed fit, everyday essential.</div>
-      <a href="AFFILIATE_LINK_HERE" class="buy" target="_blank">Buy</a>
-    </div>
+.product-card {
+  height: 360px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
 
-    <div class="card" data-category="pants">
-      <img src="https://via.placeholder.com/400x500" alt="Baggy Jeans">
-      <h3>Baggy Denim Jeans</h3>
-      <div class="price">₹2,199</div>
-      <div class="desc">Streetwear silhouette.</div>
-      <a href="AFFILIATE_LINK_HERE" class="buy" target="_blank">Buy</a>
-    </div>
+.product-card:hover {
+  transform: scale(1.02);
+}
 
-    <div class="card" data-category="jackets">
-      <img src="https://via.placeholder.com/400x500" alt="Hooded Jacket">
-      <h3>Minimal Hooded Jacket</h3>
-      <div class="price">₹2,799</div>
-      <div class="desc">Clean layers, daily wear.</div>
-      <a href="AFFILIATE_LINK_HERE" class="buy" target="_blank">Buy</a>
-    </div>
+.product-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.1)
+  );
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
-    <div class="card" data-category="sweaters">
-      <img src="https://via.placeholder.com/400x500" alt="Sweater">
-      <h3>Soft Knit Sweater</h3>
-      <div class="price">₹1,899</div>
-      <div class="desc">Comfort-first winter fit.</div>
-      <a href="AFFILIATE_LINK_HERE" class="buy" target="_blank">Buy</a>
-    </div>
-
-  </section>
-
-  <script>
-    function filterProducts(category, btn) {
-      document.querySelectorAll('.categories button')
-        .forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      document.querySelectorAll('.card').forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
-
-</body>
-</html>
+.buy-btn {
+  margin-top: 10px;
+  background: #8fffd1;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
