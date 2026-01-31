@@ -1,68 +1,175 @@
-Conversation opened. 1 unread message. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>theEcho.fyndz</title>
 
-Skip to content
-Using Gmail with screen readers
-1 of 481
-(no subject)
-Inbox
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-Chandan
-5:26 PM (5 minutes ago)
-to me
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      padding: 20px;
+    }
 
-<div class="product-card" style="background-image: url('https://YOUR-IMAGE-LINK.jpg');">
-  <div class="overlay">
-    <h3>Baggy Denim Jeans</h3>
-    <p class="price">₹2,199</p>
-    <p class="desc">Streetwear silhouette</p>
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-    <a 
-      href="https://your-affiliate-link-here"
-      target="_blank"
-      rel="nofollow noopener"
-      class="buy-btn"
-    >
-      Buy
-    </a>
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #9affc8;
+      margin-bottom: 15px;
+    }
+
+    .hero button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #9affc8;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .filters button {
+      background: #1c1c1c;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .filters button.active {
+      background: #9affc8;
+      color: #000;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .image {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .content {
+      padding: 15px;
+    }
+
+    .content h3 {
+      margin-bottom: 6px;
+    }
+
+    .price {
+      color: #9affc8;
+      margin-bottom: 6px;
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+
+    .buy {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: #2a2a2a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero">
+    <h1>theEcho.fyndz</h1>
+    <p>Curated outfits & everyday finds<br/>Handpicked drops. No random junk.</p>
+    <button onclick="filterItems('all')">Shop the fits</button>
   </div>
-</div>
 
+  <div class="filters">
+    <button class="active" onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('shirts')">Shirts</button>
+    <button onclick="filterItems('pants')">Pants</button>
+    <button onclick="filterItems('jackets')">Jackets</button>
+  </div>
 
-.product-card {
-  height: 360px;
-  border-radius: 16px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
+  <div class="grid">
 
-.product-card:hover {
-  transform: scale(1.02);
-}
+    <!-- PRODUCT 1 -->
+    <div class="card pants">
+      <div class="image" style="background-image:url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246');"></div>
+      <div class="content">
+        <h3>Baggy Denim Jeans</h3>
+        <div class="price">₹2,199</div>
+        <div class="desc">Streetwear silhouette</div>
+        <a class="buy" href="https://amzn.to/YOUR-LINK" target="_blank">Buy</a>
+      </div>
+    </div>
 
-.product-card .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.1)
-  );
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+    <!-- PRODUCT 2 -->
+    <div class="card jackets">
+      <div class="image" style="background-image:url('https://images.unsplash.com/photo-1520975922203-b9a7bb7a4c79');"></div>
+      <div class="content">
+        <h3>Minimal Hooded Jacket</h3>
+        <div class="price">₹2,799</div>
+        <div class="desc">Clean layers, daily wear</div>
+        <a class="buy" href="https://amzn.to/YOUR-LINK" target="_blank">Buy</a>
+      </div>
+    </div>
 
-.buy-btn {
-  margin-top: 10px;
-  background: #8fffd1;
-  color: #000;
-  text-align: center;
-  padding: 10px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-}
+  </div>
+
+  <script>
+    function filterItems(category) {
+      document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.querySelectorAll('.card').forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
